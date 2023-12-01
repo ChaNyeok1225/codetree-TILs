@@ -43,7 +43,7 @@ public class Main {
 				outer : while (i + l < row && arr[i + l][j] > 0) {
 					boolean flag = true;
 					for (int w = 1; w < width; w++) {
-						if (j + w >= col || arr[i + l][j + w] < 0) {
+						if (arr[i + l][j + w] < 1) {
 							flag = false;
 							break outer;
 						}
@@ -54,6 +54,12 @@ public class Main {
 				
 				size = width * height;
 				if (maxSize < size) maxSize = size;
+//				if (size > 4) {
+//					System.out.println(i);
+//					System.out.println(j);
+//					System.out.println(size);
+//					System.out.println("==================");
+//				}
 			}
 		}
 		System.out.println(maxSize > 0 ? maxSize : -1);
