@@ -22,7 +22,8 @@ public class Main {
             int end = Integer.parseInt(st.nextToken());
 
             arr[start]++;
-            arr[end+1]--;
+            if(end+1 <= n)
+                arr[end+1]--;
         }
         
         int val = 0;
@@ -32,9 +33,7 @@ public class Main {
         }
 
         Collections.sort(blocks);
-        
+
         System.out.println(blocks.get(n/2));
-        
-        
     }
 }
