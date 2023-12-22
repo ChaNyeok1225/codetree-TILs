@@ -8,10 +8,10 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        long m = Integer.parseInt(br.readLine());
+        long m = Long.parseLong(br.readLine());
         st = new StringTokenizer(br.readLine());
-        long s = Integer.parseInt(st.nextToken());
-        long e = Integer.parseInt(st.nextToken());
+        long s = Long.parseLong(st.nextToken());
+        long e = Long.parseLong(st.nextToken());
 
         long start, end, mid = 0, cnt = 0;
         long min = Integer.MAX_VALUE, max = 0;
