@@ -19,7 +19,7 @@ public class Main {
 
 			long value = mid * (mid+1) / 2;
 			
-			if(value < s) {
+			if(value <= s) {
 				start = mid + 1;
 				ans = mid;
 			} else {
