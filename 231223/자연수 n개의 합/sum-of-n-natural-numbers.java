@@ -11,7 +11,7 @@ public class Main {
 		long s = Long.parseLong(br.readLine());
 
 		long start = 1;
-		long end = s/2;
+		long end = 10_000_000_000L;
 		long mid = 0;
 		long ans = 0;
 		while(start <= end) {
