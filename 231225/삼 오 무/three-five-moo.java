@@ -8,16 +8,15 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int n = Integer.parseInt(br.readLine());
+        long n = Integer.parseInt(br.readLine());
 
-        int start = 1, end = 1_000_000_000, mid, ans = 0;
+        long start = 1, end = Integer.MAX_VALUE, mid, ans = 0;
 
         while(start <= end) {
             mid = start + (end - start) / 2;
 
-            
-            int mCnt = mid / 3 + mid / 5 - mid / 15;
-            int digit = mid - mCnt;
+            long mCnt = mid / 3 + mid / 5 - mid / 15;
+            long digit = mid - mCnt;
 
             if(digit >= n) {
                 end = mid - 1;
