@@ -8,17 +8,17 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int n = Integer.parseInt(br.readLine());
-        int k = Integer.parseInt(br.readLine());
+        long n = Integer.parseInt(br.readLine());
+        long k = Integer.parseInt(br.readLine());
 
-        int start = 1, end = n * n, mid;
-        int ans = 0;
+        long start = 1, end = n * n, mid;
+        long ans = 0;
 
         while(start <= end) {
             mid = start + (end - start) / 2;
 
-            int cnt = 0, value;
-            for(int i = 1; i < n + 1; i++) {
+            long cnt = 0, value;
+            for(long i = 1; i < n + 1; i++) {
                 value = mid / i;
                 cnt += n < value ? n : value;
             }
