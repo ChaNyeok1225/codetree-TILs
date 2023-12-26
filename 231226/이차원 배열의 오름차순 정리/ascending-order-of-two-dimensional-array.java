@@ -23,13 +23,11 @@ public class Main {
                 cnt += n < value ? n : value;
             }
 
-            if(cnt == k) {
-                ans = mid;
-                break;
-            } else if (cnt < k) {
+            if (cnt < k) {
                 start = mid + 1;
-            } else if (cnt > k) {
+            } else if (cnt >= k) {
                 end = mid - 1;
+                ans = mid;
             }
 
         }
