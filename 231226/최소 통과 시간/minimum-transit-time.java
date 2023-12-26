@@ -24,8 +24,8 @@ public class Main {
 
         while(start <= end) {
             mid = start + (end - start) / 2;
-
-            int cnt = 0;
+            
+            long cnt = 0;
             for(int i = 0; i < m; i++) 
                 cnt += mid / times[i];
             
