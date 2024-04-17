@@ -107,7 +107,7 @@ public class Main {
 
     while(pid != -1) {
       Node cur = nodes[pid];
-      int cc = cur.color;
+      int cc = (1<<cur.color);
       for(int child : cur.child)
         cc |= nodes[child].colorSet;
       cur.colorSet = cc;
@@ -134,26 +134,8 @@ public class Main {
       }
       ret += size * size;
     }
+
     return ret;
   }
 
 }
-
-/*
-15
-100 1 -1 1 3
-100 2 1 2 1
-100 3 2 3 2
-400
-100 4 1 1 3
-100 5 4 3 2
-400
-200 4 4
-100 6 4 5 2
-300 1
-300 5
-300 6
-400
-200 2 4
-400
-* */
