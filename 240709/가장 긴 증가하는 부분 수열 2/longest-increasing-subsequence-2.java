@@ -27,7 +27,7 @@ public class Main {
                 while(l <= r) {
                     mid = l + (r - l) / 2;
 
-                    if(arr[mid] <= value) {
+                    if(arr[mid] < value) {
                         l = mid + 1;
                     } else {
                         r = mid - 1;
