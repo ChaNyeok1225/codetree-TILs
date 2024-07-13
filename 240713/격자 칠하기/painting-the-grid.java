@@ -24,7 +24,7 @@ public class Main {
         }
 
         int l = 0, r = max - min, mid = 0;
-        int cnt;
+        int cnt, ans = 0;
         boolean seq = true;
         while(l <= r) {
             mid = l + (r - l) / 2;
@@ -33,6 +33,7 @@ public class Main {
  
             if(cnt >= half) {
                 r = mid - 1;
+                ans = mid;
             } else {
                 l = mid + 1;
             }
@@ -40,7 +41,7 @@ public class Main {
             seq = !seq;
         }
 
-        System.out.println(mid);
+        System.out.println(ans);
         
     }
 
