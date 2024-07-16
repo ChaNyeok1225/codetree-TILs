@@ -24,10 +24,16 @@ public class Main {
         
             for(int j = 0; j < i - 1; j++) {
                 sum = arr[i-1] + arr[j];
-                map.put(sum, map.getOrDefault(sum, 0) + 1);
+                if(map.containsKey(sum)) {
+                    map.put(sum, map.get(sum) + 1);
+                } else {
+                    map.put(sum, 1);
+                }
             }
 
-            ans += map.getOrDefault(k - arr[i], 0);
+            if(map.containsKey(k - arr[i])) {
+                ans += map.get(k - arr[i]);
+            }
         }
 
         System.out.println(ans);
