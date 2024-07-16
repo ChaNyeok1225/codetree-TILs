@@ -12,15 +12,18 @@ public class Main {
         int k = Integer.parseInt(st.nextToken());
 
         HashMap<Integer, Integer> map = new HashMap<>();
-        int ans = 0;
+        int[] arr = new int[n];
 
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < n; i++) {
-            int num = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
+            map.put(arr[i], map.getOrDefault(arr[i],0) + 1);
+        }
 
-            ans += map.getOrDefault(k - num, 0);
-
-            map.put(num, map.getOrDefault(num,0) + 1);
+        int ans = 0;
+        for(int i = 0; i < n; i++) {
+            map.put(arr[i], map.get(arr[i]) - 1);
+            ans += map.getOrDefault(k - arr[i], 0);
         }
 
         System.out.println(ans);
