@@ -24,7 +24,7 @@ public class Main {
         int ans = 0;
         for(int i = 0; i < n; i++) {
             map.put(arr[i], map.get(arr[i]) - 1);
-            ans += map.get(k - arr[i]);
+            ans += map.getOrDefault(k - arr[i], 0);
         }
 
         System.out.println(ans);
