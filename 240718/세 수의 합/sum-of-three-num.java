@@ -20,20 +20,15 @@ public class Main {
         }
 
         int sum = 0, ans = 0;
-        for(int i = 2; i < n; i++) {
-        
-            for(int j = 0; j < i - 1; j++) {
-                sum = arr[i-1] + arr[j];
-                if(map.containsKey(sum)) {
-                    map.put(sum, map.get(sum) + 1);
-                } else {
-                    map.put(sum, 1);
-                }
-            }
+        for(int i = 0; i < n - 2; i++) {
 
-            if(map.containsKey(k - arr[i])) {
-                ans += map.get(k - arr[i]);
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+
+            for(int j = i + 2; j < n; j++) {
+                sum = k - (arr[i+1] + arr[j]);
+                ans += map.getOrDefault(sum, 0);
             }
+            
         }
 
         System.out.println(ans);
