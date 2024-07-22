@@ -47,8 +47,10 @@ public class Main {
 
                 if(group[joinGroup].size() == 1) {
                     int nxt = group[joinGroup].pollFirst();
-                    q.offer(nxt);
-                    vis[nxt] = true;
+                    if(!vis[nxt]) {
+                        q.offer(nxt);
+                        vis[nxt] = true;
+                    }
                 }
             }
         }
