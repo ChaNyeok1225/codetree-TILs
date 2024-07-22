@@ -62,7 +62,7 @@ public class Main {
             max = max > cnt ? max : cnt;
         }
 
-        return dp[r][c] + max;
+        return dp[r][c] = dp[r][c] + max;
     }
 
 }
