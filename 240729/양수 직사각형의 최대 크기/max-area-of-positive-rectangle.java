@@ -15,7 +15,7 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
 
-        ans = 0;
+        ans = -1;
         arr = new int[n][m];
 
         for(int i = 0; i < n; i++) {
