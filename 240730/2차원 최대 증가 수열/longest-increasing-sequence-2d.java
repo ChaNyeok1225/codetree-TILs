@@ -19,16 +19,20 @@ public class Main {
             }
         }
 
-        int ans = 0;
+        int ans = 1;
         int[][] dp = new int[n][m];
-        dp[0][0] = dp[0][1] = 1;
+        dp[0][0] = 1;
 
         for(int j = 1; j < n; j++) {
             for(int i = 1; i < n; i++) {
-                dp[i][j] = dp[i-1][j] > dp[i][j-1] ? dp[i-1][j] : dp[i][j-1];
-                if(arr[i][j] > arr[i-1][j]) {
-                    dp[i][j] = dp[i][j] > dp[i-1][j] + 1 ? dp[i][j] : dp[i-1][j] + 1;                       
-                }  
+                
+                for(int l = 0; l < j; l++) {
+                    for(int k = 0; k < i; k++) {
+                        if(dp[k][l] != 0 && arr[k][l] < arr[i][j]) {
+                            dp[i][j] = dp[i][j] > dp[k][l] + 1 ? dp[i][j] : dp[k][l] + 1;
+                        }
+                    }
+                }
                 ans = ans > dp[i][j] ? ans : dp[i][j];
             }
         }
