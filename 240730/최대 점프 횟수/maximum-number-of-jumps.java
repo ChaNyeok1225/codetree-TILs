@@ -17,11 +17,11 @@ public class Main {
 
         int ans = 0;
         int[] dp = new int[n];
-
+        dp[0] = 1;
         for(int i = 1; i < n; i++) {
             
             for(int j = 0; j < i; j++) {
-                if(i <= arr[j] + j) {
+                if(dp[j] != 0 && i <= arr[j] + j) {
                     dp[i] = dp[i] > dp[j] + 1 ? dp[i] : dp[j] + 1;
                 }
             }
@@ -29,6 +29,6 @@ public class Main {
             ans = ans > dp[i] ? ans : dp[i];
         }
 
-        System.out.println(ans);
+        System.out.println(ans - 1);
     }
 }
