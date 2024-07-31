@@ -31,6 +31,8 @@ public class Main {
                 }
             }
         }
+        if(dp[m] == Integer.MAX_VALUE)
+            dp[m] = -1;
         System.out.println(dp[m]);
 
     }
