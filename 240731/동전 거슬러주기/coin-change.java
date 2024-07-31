@@ -18,6 +18,8 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < n; i++) {
             coins[i] = Integer.parseInt(st.nextToken());
+            if(coins[i] > m)
+                continue;
             dp[coins[i]] = 1;
         }
         
