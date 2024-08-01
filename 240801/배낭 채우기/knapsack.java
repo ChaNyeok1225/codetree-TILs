@@ -13,30 +13,23 @@ public class Main {
         
         int[][] jewel = new int[n+1][2];
 
-        for(int i = 1; i <= n; i++) {
+        for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             jewel[i][0] = Integer.parseInt(st.nextToken());
             jewel[i][1] = Integer.parseInt(st.nextToken());
         }
 
-        int[][] dp = new int[n+1][m+1];
-        dp[0][0] = 0;
-        int ans = 0, val;
-        for(int i = 1; i <= n; i++) {
-            for(int j = 1; j <= m; j++) {
-                dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
-
-                if(j >= jewel[i][0]) {
-                    val = dp[i-1][j-jewel[i][0]] + jewel[i][1];
-                    dp[i][j] = dp[i][j] > val ? dp[i][j] : val;
-                }
-                ans = ans > dp[i][j] ? ans : dp[i][j];
+        int[] dp = new int[m+1];
+        dp[0] = 0;
+        int val;
+        for(int i = 0; i < n; i++) {
+            for(int j = m; j >= jewel[i][0]; j--) {
+                val = dp[j - jewel[i][0]] + jewel[i][1];
+                dp[j] = dp[j] > val ? dp[j] : val;
             }
         }
 
-
-        System.out.println(ans);
-
+        System.out.println(dp[m]);
 
     }
 }
