@@ -24,20 +24,20 @@ public class Main {
             Arrays.fill(dp[i], -1);
         }
         dp[0][0] = 0;
-        int ans = 0;
+        int ans = 0, val;
         for(int i = 1; i <= n; i++) {
-            for(int j = 0; j <= m; j++) {
-                dp[i][j] = dp[i-1][j];
+            for(int j = 1; j <= m; j++) {
+                dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
 
                 if(j >= jewel[i][0] &&  dp[i-1][j - jewel[i][0]] >= 0) {
-                    dp[i][j] = dp[i-1][j-jewel[i][0]] + jewel[i][1];
+                    val = dp[i-1][j-jewel[i][0]] + jewel[i][1];
+                    dp[i][j] = dp[i][j] > val ? dp[i][j] : val;
                 }
                 ans = ans > dp[i][j] ? ans : dp[i][j];
             }
         }
 
         System.out.println(ans);
-
 
     }
 }
