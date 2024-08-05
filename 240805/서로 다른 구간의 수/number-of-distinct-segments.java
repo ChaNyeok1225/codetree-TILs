@@ -17,10 +17,10 @@ public class Main {
             int e = Integer.parseInt(st.nextToken());
 
             map.put(s, map.getOrDefault(s, 0) + 1);
-            map.put(e + 1, map.getOrDefault(e + 1, 0) - 1);
+            map.put(e, map.getOrDefault(e, 0) - 1);
         }
 
-        int ans = 1;
+        int ans = 0;
         int k = 0;
         for(int val : map.values()) {
             k += val;
