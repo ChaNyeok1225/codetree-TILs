@@ -29,11 +29,11 @@ public class Main {
             for(int j = i + 1; j < m - 1; j++) {
                 for(int k = j + 1; k < m; k++) {
 
-                    for(int idx = 0; idx < 3; idx++) {
+                    for(int idx = 0; idx < n; idx++) {
                         set.add(A[idx][i] + "" + A[idx][j] + "" + A[idx][k]);
                     }
 
-                    for(int idx = 0; idx < 3; idx++) {
+                    for(int idx = 0; idx < n; idx++) {
                         if(set.contains(B[idx][i] +""+B[idx][j]+""+B[idx][k])) {
                             flag = false;
                             break;
