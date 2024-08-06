@@ -7,30 +7,29 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        TreeSet<int[]> set = new TreeSet<>((a,b) -> {
-            if(a[0] == b[0])
-                return a[1] - b[1];
-            return a[0] - b[0];
-        });
-        Set<int[]> subSet;
+        TreeSet<Integer> set = new TreeSet<>();
 
         st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
+        for(int i = 1; i <= m; i++) {
+            set.add(i);
+        }
         
         st = new StringTokenizer(br.readLine());
         int ans = 0;
+        Integer remains;
         for(int i = 0; i < n; i++) {
             int num = Integer.parseInt(st.nextToken());
 
-            subSet = set.headSet(new int[] {num, n});
-            if(subSet.size() == num) {
+            remains = set.floor(num);
+
+            if(remains == null) {
                 break;
             }
-            
+            set.remove(remains);
             ans++;
-            set.add(new int[] {num, i});
         }
 
         System.out.println(ans);
