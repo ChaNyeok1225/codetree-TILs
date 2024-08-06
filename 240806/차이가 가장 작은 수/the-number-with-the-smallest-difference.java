@@ -16,17 +16,17 @@ public class Main {
             set.add(Integer.parseInt(br.readLine()));
         }
 
-        Integer n1, n2, tmp;
+        Integer search;
 
-        n1 = set.first();
         int ans = Integer.MAX_VALUE;
-        for(int i = 0; i < n; i++) {
-            n2 = set.ceiling(n1 + m);
-            if(n2 != null && n2 - n1 < ans) {
-                ans = n2 - n1;
+        for(int k : set) {
+            search = set.ceiling(k + m);
+
+            if(search != null && ans > k - search) {
+                ans = k - search;
             }
-            n1 = set.higher(n1);
         }
+
         if(ans == Integer.MAX_VALUE)
             ans = -1;
         System.out.println(ans);
