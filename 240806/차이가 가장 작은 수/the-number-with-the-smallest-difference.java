@@ -20,7 +20,7 @@ public class Main {
 
         n1 = set.first();
         int ans = Integer.MAX_VALUE;
-        for(int i = 1; i < n; i++) {
+        for(int i = 0; i < n; i++) {
             n2 = set.ceiling(n1 + m);
             if(n2 != null && n2 - n1 < ans) {
                 ans = n2 - n1;
