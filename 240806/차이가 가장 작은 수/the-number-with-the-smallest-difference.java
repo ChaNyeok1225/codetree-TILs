@@ -23,7 +23,7 @@ public class Main {
             search = set.ceiling(k + m);
 
             if(search != null && ans > k - search) {
-                ans = k - search;
+                ans = search - k;
             }
         }
 
