@@ -27,7 +27,8 @@ public class Main {
             }
             n1 = set.higher(n1);
         }
-
+        if(ans == Integer.MAX_VALUE)
+            ans = -1;
         System.out.println(ans);
 
     }
