@@ -11,7 +11,7 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int t = Integer.parseInt(st.nextToken());
 
-        int[][] arr = new int[n][2];
+        long[][] arr = new long[n][2];
         for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             arr[i][0] = Integer.parseInt(st.nextToken());
@@ -20,15 +20,15 @@ public class Main {
 
         Arrays.sort(arr, (a,b) -> {
             if(a[0] == b[0])
-                return b[1] - a[1];
-            return b[0] - a[0];
+                return (int)(b[1] - a[1]);
+            return (int)(b[0] - a[0]);
         });
 
-        TreeSet<Integer> set = new TreeSet<>();
+        TreeSet<Long> set = new TreeSet<>();
         for(int i = 0; i < n; i++) {
-            int point = arr[i][0] + arr[i][1] * t;
+            long point = arr[i][0] + arr[i][1] * t;
 
-            Integer p = set.floor(point);
+            Long p = set.floor(point);
 
             if(p != null && arr[i][0] <= p) {
                 point = p;
