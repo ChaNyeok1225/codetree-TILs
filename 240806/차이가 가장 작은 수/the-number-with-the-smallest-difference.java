@@ -22,7 +22,7 @@ public class Main {
         for(int k : set) {
             search = set.ceiling(k + m);
 
-            if(search != null && ans > k - search) {
+            if(search != null && ans > search - k) {
                 ans = search - k;
             }
         }
