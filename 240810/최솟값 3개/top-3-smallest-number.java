@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.math.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -10,20 +11,20 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> b - a);
+        BigInteger bi = new BigInteger("1");
 
-        long total = 1;
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < n; i++) {
-            int num = Integer.parseInt(st.nextToken());            
-            pq.offer(num);
-            if(i > 2)
-                total /= pq.poll();
-            total *= num;
-
+            String num = st.nextToken();
+            bi = bi.multiply(new BigInteger(num));
+            pq.offer(Integer.parseInt(num));
             if(i < 2) {
                 sb.append(-1);
             } else {
-                sb.append(total);
+                if(i > 2) {
+                    bi = bi.divide(new BigInteger(String.valueOf(pq.poll())));
+                }
+                sb.append(bi);
             }
 
             sb.append("\n");
