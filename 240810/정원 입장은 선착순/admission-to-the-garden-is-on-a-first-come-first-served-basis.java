@@ -35,7 +35,7 @@ public class Main {
             ans = ans > curTime - cur[1] ? ans : curTime - cur[1];
             curTime += cur[2];
 
-            while(curIdx < n && curTime >= arr[curIdx][1] || pq.isEmpty()) {
+            while(curIdx < n && (curTime >= arr[curIdx][1] || pq.isEmpty())) {
                 pq.offer(arr[curIdx]);
                 curIdx++;
             }
