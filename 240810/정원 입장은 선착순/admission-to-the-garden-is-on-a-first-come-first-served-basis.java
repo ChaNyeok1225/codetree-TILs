@@ -35,8 +35,12 @@ public class Main {
             ans = ans > curTime - cur[1] ? ans : curTime - cur[1];
             curTime += cur[2];
 
-            while(curIdx < n && (curTime >= arr[curIdx][1] || pq.isEmpty())) {
-                pq.offer(arr[curIdx]);
+            while(curIdx < n && curTime >= arr[curIdx][1]) {
+                pq.offer(new int[] {arr[curIdx][0], arr[curIdx][1], arr[curIdx][2]});
+                curIdx++;
+            }
+            if(curIdx < n && pq.isEmpty()) {
+                pq.offer(new int[] {arr[curIdx][0], arr[curIdx][1], arr[curIdx][2]});
                 curIdx++;
             }
         }
