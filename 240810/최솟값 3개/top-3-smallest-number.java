@@ -16,13 +16,13 @@ public class Main {
         for(int i = 0; i < n; i++) {
             int num = Integer.parseInt(st.nextToken());            
             pq.offer(num);
+            if(i > 2)
+                total /= pq.poll();
             total *= num;
 
             if(i < 2) {
                 sb.append(-1);
             } else {
-                if(i > 2)
-                    total /= pq.poll();
                 sb.append(total);
             }
 
