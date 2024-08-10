@@ -11,18 +11,19 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         
-        int[][] arr = new int[n][3];
+        int[][] arr = new int[n][];
         for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            arr[i][0] = i;
-            arr[i][1] = Integer.parseInt(st.nextToken());
-            arr[i][2] = Integer.parseInt(st.nextToken());
+            int a = Integer.parseInt(st.nextToken());
+            int t = Integer.parseInt(st.nextToken());
+            arr[i] = new int[] {i, a, t};
         }
+
         Arrays.sort(arr, (a, b) -> a[1] - b[1]);
 
         int curIdx = 0;
         int curTime = arr[curIdx][1];
-        pq.offer(arr[curIdx]);
+        pq.offer(new int[] {arr[curIdx][0], arr[curIdx][1], arr[curIdx][2]});
         curIdx++;
 
         int ans = 0;
@@ -30,10 +31,12 @@ public class Main {
         while(!pq.isEmpty()) {
             cur = pq.poll();
 
-            if(curTime < cur[1])
-                curTime = cur[1];
-            ans = ans > curTime - cur[1] ? ans : curTime - cur[1];
-            curTime += cur[2];
+            if(cur != null) {
+                if(curTime < cur[1])
+                    curTime = cur[1];
+                ans = ans > curTime - cur[1] ? ans : curTime - cur[1];
+                curTime += cur[2];
+            }
 
             while(curIdx < n && curTime >= arr[curIdx][1]) {
                 pq.offer(new int[] {arr[curIdx][0], arr[curIdx][1], arr[curIdx][2]});
