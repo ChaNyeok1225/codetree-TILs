@@ -11,7 +11,7 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> b - a);
 
-        int total = 1;
+        long total = 1;
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < n; i++) {
             int num = Integer.parseInt(st.nextToken());            
