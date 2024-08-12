@@ -24,25 +24,25 @@ public class Main {
         Node head, tail;
         head = tail = new Node(0);
 
-        Node[] knights = new Node[100001];
+        HashMap<Integer, Node> knights = new HashMap<>();
 
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < n; i++) {
             int num = Integer.parseInt(st.nextToken());
-            Node newNode = new Node(num);
+            Node knight = new Node(num);
             
-            newNode.prev = tail;
-            tail.next = newNode;
-            tail = newNode;
+            knight.prev = tail;
+            tail.next = knight;
+            tail = knight;
 
-            knights[num] = newNode;
+            knights.put(num, knight);
         }
         head.next.prev = tail;
         tail.next = head.next;
 
         for(int i = 0; i < m; i++) {
             int num = Integer.parseInt(br.readLine());
-            Node knight = knights[num];
+            Node knight = knights.get(num);
             sb.append(knight.next.num + " " + knight.prev.num + "\n");
             knight.prev.next = knight.next;
             knight.next.prev = knight.prev;
