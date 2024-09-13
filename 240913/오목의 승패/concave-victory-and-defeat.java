@@ -37,7 +37,7 @@ public class Main {
                         nr += dr[d];
                         nc += dc[d];
 
-                        if(nr + dr[d] > 18 || nc + dr[d] > 18 || map[nr][nc] != color) {
+                        if(nr > 18 || nc > 18 || map[nr][nc] != color) {
                             if(cnt == 5) {
                                 answer = color;
                                 answerR = i;
