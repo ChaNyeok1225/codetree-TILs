@@ -10,6 +10,7 @@ public class Main {
         int answer, answerR, answerC;
         answer = answerR = answerC = 0;
         int[][] map = new int[19][19];
+        int[][] vis = new int[19][19];
 
         for(int i = 0; i < 19; i++) {
             st = new StringTokenizer(br.readLine());
@@ -18,7 +19,7 @@ public class Main {
             }
         }
 
-        int[] dr = {1, 0, 1}, dc = {0, 1, 1};
+        int[] dr = {1, 0, 1, 1}, dc = {0, 1, 1, -1};
 
         int color, cnt, nr, nc;
         for(int i = 0; i < 19; i++) {
@@ -27,8 +28,8 @@ public class Main {
                     continue;
 
                 color = map[i][j];
-                map[i][j] = 0;
-                for(int d = 0; d < 3; d++) {
+                vis[i][j] = 15;
+                for(int d = 0; d < 4; d++) {
                     cnt = 1;
                     nr = i;
                     nc = j;
@@ -37,20 +38,26 @@ public class Main {
                         nr += dr[d];
                         nc += dc[d];
 
-                        if(nr > 18 || nc > 18 || map[nr][nc] != color) {
+                        if(nr < 0 || nc < 0 || nr > 18 || nc > 18 || map[nr][nc] != color || (vis[nr][nc] & (1 << d)) != 0 ) {
                             if(cnt == 5) {
                                 answer = color;
                                 answerR = i;
                                 answerC = j;
+                                if(d == 3) {
+                                    answerR = i + 4;
+                                    answerC = j - 4;
+                                }
                             }
                             break;
                         }
                         cnt++;
-                        map[nr][nc] = 0;
+                        vis[nr][nc] |= (1 << d);
                     }
                 }
             }
         }
+
+   
 
         sb.append(answer).append("\n");
         if(answer != 0) {
