@@ -46,8 +46,8 @@ public class Main {
                             break;
                         }
                         cnt++;
+                        map[nr][nc] = 0;
                     }
-                    map[nr][nc] = 0;
                 }
             }
         }
