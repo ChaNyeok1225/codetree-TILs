@@ -16,9 +16,11 @@ public class Main {
         int[] dr = {1,0,-1,0, 1, 1, -1, -1}, dc = {0,1,0,-1,1,-1,1,-1};
 
         ArrayDeque<int[]> q = new ArrayDeque<>();
-
-        q.offer(new int[] {7 ,0, 0});
-        vis[7][0] = true;
+        
+        if(map[7][0] == '.') {
+            q.offer(new int[] {7 ,0, 0});
+            vis[7][0] = true;
+        }
 
         int[] cur;
         int nr, nc, answer = 0;
