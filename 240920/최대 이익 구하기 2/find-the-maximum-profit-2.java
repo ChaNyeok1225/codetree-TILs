@@ -24,6 +24,7 @@ public class Main {
                 dp[i+info[i][0]] = Math.max(dp[i+info[i][0]], dp[i] + info[i][1]);
             }
         }
+        dp[n+1] = Math.max(dp[n+1], dp[n]);
 
         System.out.println(dp[n+1]);
     }
