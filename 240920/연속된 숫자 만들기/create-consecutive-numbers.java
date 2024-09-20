@@ -20,7 +20,7 @@ public class Main {
         int dmax = Math.max(diff1,diff2);
         int dmin = Math.min(diff1,diff2);
 
-        if(dmin > 2) {
+        if(dmin > 2 || (dmin == 1 && dmax > 2)) {
             sb.append("2");
         } else if (diff1 == 1 && diff2 == 1){
             sb.append("0");
