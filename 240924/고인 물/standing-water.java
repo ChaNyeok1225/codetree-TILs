@@ -19,13 +19,17 @@ public class Main {
         for(int i = 0; i < m; i++) 
             h[i] = Integer.parseInt(st.nextToken());
         
-        int l = 0, r = m - 1;
+        int l = 0, r = m - 1, acc;
+
+        acc = 0;
         for(int i = 0; i < m; i++) {
             if(h[l] <= h[i]) {
                 l = i;
+                answer += acc;
+                acc = 0;
                 continue;
             }
-            answer += h[l] - h[i];
+            acc += h[l] - h[i];
         }
 
         for(int i = m - 1; i >= l; i--) {
