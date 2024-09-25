@@ -23,8 +23,8 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             char ins = st.nextToken().charAt(0);
             rules[i][0] = ins == 'S' ? 0 : 1;
-            rules[i][1] = Integer.parseInt(st.nextToken());
-            rules[i][2] = Integer.parseInt(st.nextToken());
+            rules[i][1] = Integer.parseInt(st.nextToken()) - 1;
+            rules[i][2] = Integer.parseInt(st.nextToken()) - 1;
         }
 
         dfs(0, n);
