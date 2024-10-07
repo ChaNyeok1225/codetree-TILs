@@ -49,13 +49,13 @@ public class Main {
         }
 
         for(int i = 1; i < n + 1; i++) {
-            for(int j = 1; j < m + 1; j++) {
-                dp[i][j] = Math.min(dp[i][j], dp[i-1][j-1] + Math.abs(a[i-1] - b[j-1]));
+            for(int j = i; j < m + 1; j++) {
+                dp[i][j] = Math.min(dp[i][j - 1], dp[i-1][j-1] + Math.abs(a[i-1] - b[j-1]));
             }
         }
 
         int answer = INF;
-        for(int i = 0; i < m + 1; i++) {
+        for(int i = n; i < m + 1; i++) {
             answer = answer < dp[n][i] ? answer : dp[n][i];
         }
         System.out.println(answer);
