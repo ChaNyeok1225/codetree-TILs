@@ -21,7 +21,7 @@ public class Main {
             }
         }
 
-        int[] dr = {1, 0, -1, 0, -1, 1}, dc = {0, 1, 0, -1, -1, -1}; 
+        int[] dr = {1, 0, -1, 0, -1, 1}, dc[] = {{0, 1, 0, -1, -1, -1}, {0,1,0,-1,1,1}}; 
 
         boolean[][] vis = new boolean[n+2][m+2];
 
@@ -37,7 +37,7 @@ public class Main {
 
             for(int dir = 0; dir < 6; dir++) {
                 nr = cur[0] + dr[dir];
-                nc = cur[1] + dc[dir];
+                nc = cur[1] + dc[cur[0] & 1][dir];
 
                 if(nr < 0 || nr > n + 1 || nc < 0 || nc > m + 1) {
                     continue;
